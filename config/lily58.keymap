@@ -14,7 +14,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "DTREVIT";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET>, <&tog 3>;
+            bindings = <&kp LEFT_BRACKET>, <&to 3>;
+
+            tapping-term-ms = <300>;
         };
     };
 
