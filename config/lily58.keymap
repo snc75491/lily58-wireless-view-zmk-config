@@ -10,11 +10,29 @@
 
 / {
     behaviors {
-        Revit: Revit {
+        ToRevit: ToRevit {
             compatible = "zmk,behavior-tap-dance";
-            label = "REVIT";
+            label = "TOREVIT";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET>, <&Revit>;
+            bindings = <&kp LEFT_BRACKET>, <&to 3>;
+        };
+    };
+
+    macros {
+        Walls: Walls {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt W &kp A>;
+            label = "W";
+            wait-ms = <200>;
+        };
+
+        Doors: Doors {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt D &kp R>;
+            label = "DOORS";
+            wait-ms = <200>;
         };
     };
 
@@ -83,11 +101,11 @@
 
         Revit {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&kp ESC  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &Walls  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &Doors  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
