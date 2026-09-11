@@ -25,7 +25,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kt W &kp A>;
-            label = "W";
+            label = "Walls";
             wait-ms = <200>;
         };
 
@@ -34,6 +34,22 @@
             #binding-cells = <0>;
             bindings = <&kt D &kp R>;
             label = "DOORS";
+            wait-ms = <200>;
+        };
+
+        Trim: Trim {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp R>;
+            label = "TRIM";
+            wait-ms = <200>;
+        };
+
+        Dim: Dim {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp I>;
+            label = "DIM";
             wait-ms = <200>;
         };
     };
@@ -108,6 +124,16 @@
 &trans   &trans  &trans  &Doors  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans   &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
                          &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Revit2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &Dim    &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
