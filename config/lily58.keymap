@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     behaviors {
@@ -15,6 +16,15 @@
             label = "DTREVIT";
             #binding-cells = <0>;
             bindings = <&kp LEFT_BRACKET>, <&to 3>;
+
+            tapping-term-ms = <300>;
+        };
+
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "NEW_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET>, <&to 3>, <&to 6>;
 
             tapping-term-ms = <300>;
         };
@@ -123,7 +133,7 @@
 &trans   &trans  &Walls  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans   &trans  &trans  &Doors  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans   &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+                         &trans  &mo 5   &mo 4   &trans    &trans  &trans  &trans  &trans
             >;
         };
 
@@ -132,7 +142,27 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &Dim    &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &mo 5   &trans  &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Pan-zoom {
+            bindings = <
+&trans  &trans     &trans          &trans          &trans           &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mkp MCLK  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &trans          &trans          &trans           &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                   &trans          &trans           &trans  &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Bluebeam {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp P   &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
