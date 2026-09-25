@@ -66,21 +66,23 @@
         PanLeft: PanLeft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MCLK &mmv MOVE_LEFT>;
+            bindings = <&mkp MB3 &mmv MOVE_LEFT>, <&macro_press>;
+
             label = "PANLEFT";
         };
 
         PanRight: PanRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MCLK &mmv MOVE_RIGHT>;
+            bindings = <&mkp MB3 &mmv MOVE_RIGHT>, <&macro_press>;
+
             label = "PANRIGHT";
         };
 
         PanUp: PanUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MCLK &mmv MOVE_UP>, <&macro_press>;
+            bindings = <&mkp MB3 &mmv MOVE_UP>, <&macro_press>;
 
             label = "PANUP";
         };
@@ -169,11 +171,11 @@
 
         Pan {
             bindings = <
-&trans  &trans  &trans          &trans  &trans           &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &msc SCRL_UP    &PanUp  &msc SCRL_DOWN   &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &msc SCRL_LEFT  &PanDN  &msc SCRL_RIGHT  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans  &trans           &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans           &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &msc SCRL_UP    &PanUp  &msc SCRL_DOWN  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &msc SCRL_LEFT  &PanDN  &mkp MB3        &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans          &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans          &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
