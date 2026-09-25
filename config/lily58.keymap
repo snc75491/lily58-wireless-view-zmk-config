@@ -171,11 +171,11 @@
 
         Pan {
             bindings = <
-&trans  &trans    &trans        &trans  &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &msc SCRL_UP  &PanUp  &msc SCRL_DOWN  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &mkp MB3  &PanLeft      &PanDN  &PanRight       &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans        &trans  &trans          &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans          &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans    &trans        &trans  &trans          &trans                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans    &msc SCRL_UP  &PanUp  &msc SCRL_DOWN  &trans                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &mkp MB3  &PanLeft      &PanDN  &PanRight       &trans                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans    &trans        &trans  &trans          &trans  &to 0     &trans  &trans  &trans     &trans     &trans     &trans  &trans
+                                &trans  &trans          &trans  &trans    &trans  &trans  &trans     &trans
             >;
         };
 
