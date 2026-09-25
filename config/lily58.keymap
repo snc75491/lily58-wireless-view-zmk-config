@@ -74,7 +74,7 @@
         PanRight: PanRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv MOVE_RIGHT>, <&macro_press>;
+            bindings = <&macro_press>, <&mkp MB3 &mmv MOVE_RIGHT>;
 
             label = "PANRIGHT";
         };
@@ -82,7 +82,7 @@
         PanUp: PanUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv MOVE_UP>, <&macro_press>;
+            bindings = <&macro_press>, <&mkp MB3 &mmv MOVE_UP>;
 
             label = "PANUP";
         };
@@ -90,7 +90,7 @@
         PanDN: PanDN {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&mkp MB3 &mmv MOVE_DOWN>, <&macro_press>;
+            bindings = <&macro_press>, <&mkp MB3 &mmv MOVE_DOWN>;
 
             label = "PANDN";
         };
@@ -171,11 +171,11 @@
 
         Pan {
             bindings = <
-&trans  &trans    &trans          &trans          &trans           &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &mkp MB3  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans          &trans          &trans           &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                  &trans          &trans           &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans    &trans        &trans  &trans          &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &msc SCRL_UP  &PanUp  &msc SCRL_DOWN  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &mkp MB3  &PanLeft      &PanDN  &PanRight       &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans    &trans        &trans  &trans          &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans          &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
