@@ -62,6 +62,34 @@
             label = "DIM";
             wait-ms = <200>;
         };
+
+        PanLeft: PanLeft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MCLK &mmv MOVE_LEFT>;
+            label = "PANLEFT";
+        };
+
+        PanRight: PanRight {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MCLK &mmv MOVE_RIGHT>;
+            label = "PANRIGHT";
+        };
+
+        PanUp: PanUp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MCLK &mmv MOVE_UP>;
+            label = "PANUP";
+        };
+
+        PanDN: PanDN {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&mkp MCLK &mmv MOVE_UP>;
+            label = "PANDN";
+        };
     };
 
     keymap {
@@ -149,11 +177,11 @@
 
         Mouse {
             bindings = <
-&trans  &trans     &trans          &trans          &trans           &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &msc SCRL_DOWN  &mmv MOVE_UP    &msc SCRL_UP     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &mkp MCLK  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans          &trans          &trans           &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                   &trans          &trans           &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans        &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &msc SCRL_DOWN  &PanUp  &msc SCRL_UP  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &PanLeft        &PanDN  &PanRight     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
