@@ -20,11 +20,11 @@
             tapping-term-ms = <300>;
         };
 
-        new_behavior: new_behavior {
+        Pan: Pan {
             compatible = "zmk,behavior-tap-dance";
-            label = "NEW_BEHAVIOR";
+            label = "PAN";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET>, <&to 3>, <&to 6>;
+            bindings = <&kp RIGHT_BRACKET>, <&to 4>;
 
             tapping-term-ms = <300>;
         };
@@ -109,11 +109,11 @@
 
             display-name = "Base";
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                            &kp N6         &kp N7  &kp N8     &kp N9   &kp N0    &kp GRAVE
-&kp TAB    &kp Q   &kp W   &kp E     &kp R   &kp T                             &kp Y          &kp U   &kp I      &kp O    &kp P     &kp MINUS
-&kp LCTRL  &kp A   &kp S   &kp D     &kp F   &kp G                             &kp H          &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V   &kp B      &DTRevit     &kp RBKT  &kp N          &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &kp LALT  &mo 1   &kp LCTRL  &kp SPACE    &kp RET   &kp BACKSPACE  &mo 2   &kp RGUI
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4  &kp N5                           &kp N6         &kp N7  &kp N8     &kp N9   &kp N0    &kp GRAVE
+&kp TAB    &kp Q   &kp W   &kp E     &kp R   &kp T                            &kp Y          &kp U   &kp I      &kp O    &kp P     &kp MINUS
+&kp LCTRL  &kp A   &kp S   &kp D     &kp F   &kp G                            &kp H          &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp V   &kp B      &DTRevit     &Pan     &kp N          &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                           &kp LALT  &mo 1   &kp LCTRL  &kp SPACE    &kp RET  &kp BACKSPACE  &mo 2   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -165,27 +165,17 @@
 &trans   &trans  &Walls  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans   &trans  &trans  &Doors  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans   &trans  &trans  &trans  &trans  &trans  &to 0     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                         &trans  &mo 5   &mo 4   &trans    &trans  &trans  &trans  &trans
+                         &trans  &trans  &mo 4   &trans    &trans  &trans  &trans  &trans
             >;
         };
 
         Pan {
             bindings = <
-&trans  &trans    &trans        &trans  &trans          &trans                    &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans    &msc SCRL_UP  &PanUp  &msc SCRL_DOWN  &trans                    &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &mkp MB3  &PanLeft      &PanDN  &PanRight       &trans                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
-&trans  &trans    &trans        &trans  &trans          &trans  &to 0     &trans  &trans  &trans     &trans     &trans     &trans  &trans
-                                &trans  &trans          &trans  &trans    &trans  &trans  &trans     &trans
-            >;
-        };
-
-        Mouse {
-            bindings = <
-&trans  &trans  &trans          &trans  &trans        &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &msc SCRL_DOWN  &PanUp  &msc SCRL_UP  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &PanLeft        &PanDN  &PanRight     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans        &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans    &trans          &trans          &trans           &trans                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans    &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &mkp MB3  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans    &trans          &trans          &trans           &trans  &to 0     &trans  &trans  &trans     &trans     &trans     &trans  &trans
+                                  &trans          &trans           &trans  &trans    &to 0   &trans  &trans     &trans
             >;
         };
 
